@@ -1,8 +1,8 @@
 package com.fwtai.webflux.controller;
 
+import com.fwtai.webflux.domain.Product;
 import com.fwtai.webflux.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import com.fwtai.webflux.domain.Product;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +12,11 @@ import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+/**
+ * todo 整个 reactive 就是class实现Publisher,对外发布信息,而Subscriber接收信息;
+ *  Flux<T> 或 Mono<T> 均实现 implements CorePublisher<T>,而接口CorePublisher有继承Publisher;
+ *  Publisher 仅有一个 subscribe(Subscriber<? super T> s); Subscriber就是订阅者,接收者
+*/
 @RestController
 @RequiredArgsConstructor
 public class ProductController {
